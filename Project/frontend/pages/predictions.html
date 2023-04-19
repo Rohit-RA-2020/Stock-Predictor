@@ -112,7 +112,9 @@
             </div>
             
             <script>
-            
+                
+                var hosturl = 'http://10.0.2.2:'
+
                 function plotGraph(chartId, trainingDates, trainingData, predictionDates, predictionData, showAnimation) {
                     var training = [];
                     var predictions = [];
@@ -218,7 +220,7 @@
                     $('.realPredTable').html('');
 
                     $.ajax({
-                        url: 'http://10.0.2.2:7676/getPredictions',
+                        url: `${hosturl}07676/getPredictions`,
                         method: 'post',
                         data: {"modelName": modelName},
                         success: (res) => {
@@ -309,7 +311,7 @@
                     }
 
                     $.ajax({
-                        url: 'http://10.0.2.2:7676/getManualPrediction',
+                        url: `${hosturl}7676/getManualPrediction`,
                         method: 'post',
                         data: {
                             "fileName": fileName,
@@ -337,7 +339,7 @@
                     $('.predictNextDayButton').hide();
 
                     $.ajax({
-                        url: 'http://10.0.2.2:7676/getPreTrainedModels',
+                        url: `${hosturl}7676/getPreTrainedModels`,
                         method: 'post',
                         success: (res) => {
                             console.log(res);
